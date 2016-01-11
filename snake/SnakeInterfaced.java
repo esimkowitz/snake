@@ -6,6 +6,9 @@ import java.util.ListIterator;
 import sedgewick.StdDraw;
 
 public class SnakeInterfaced implements Anim{
+	
+	// This was a failed attempt to make a separate Snake object for use with an interface.
+	// I gave up on it for the most part and just use the Snake object for both controls.
 
 	protected Point p;
 	protected Integer orientation;	
