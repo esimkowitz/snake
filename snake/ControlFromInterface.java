@@ -6,6 +6,12 @@ import java.util.LinkedList;
 import sedgewick.StdDraw;
 
 public class ControlFromInterface {
+	
+	// an interfaced version of control, utilizes the modified FoodInt and SnakeInt, which are optimized
+	// use less memory than their older counterparts Snake and Food.
+	
+	// The new files store position data as integers, which are more reliable and require fewer bits to store.
+	// Other bugs were also squashed, allowing the game to render and run smoother and more reliably.
 
 	/**
 	 * displays the player's score for the previous game and waits from
