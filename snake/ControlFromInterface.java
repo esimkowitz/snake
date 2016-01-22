@@ -3,7 +3,6 @@ package lab10.snake;
 import java.awt.Color;
 import java.util.LinkedList;
 
-import lab10.snake.Food;
 import sedgewick.StdDraw;
 
 public class ControlFromInterface {
@@ -34,10 +33,11 @@ public class ControlFromInterface {
 		LinkedList<Anim> scene1 = new LinkedList<Anim>();
 		StartScreen ss = new StartScreen();
 		scene1.add(ss);
-		Snake s = new Snake();
-		scene1.add(s);
-		Food f = new Food();
+		FoodInt f = new FoodInt();
 		scene1.add(f);
+		SnakeInt s = new SnakeInt();
+		scene1.add(s);
+		
 		
 		while (true) {
 			StdDraw.clear();
@@ -45,15 +45,16 @@ public class ControlFromInterface {
 			StdDraw.square(.5, .5, .5);
 			
 			for (Anim a : scene1) {
-				if (s.isDone()) {
-					gameOver(s.x.size());
-					a.reset();
-				}
 				a.draw();
+				if (s.isDone()) {
+					gameOver(s.x.size()-1);
+					s.reset();
+					f.reset();
+				}
 			}
 			
-			if (((double)s.x.getFirst() == (double)f.getX()) 
-					&& ((double)s.y.getFirst() == (double)f.getY())) {
+			if ((s.x.getFirst() == f.getX()) 
+					&& (s.y.getFirst() == f.getY())) {
 				s.addLast();
 				f.setNew();
 			}
